@@ -1,0 +1,31 @@
+The 2026 DevOps Learning Roadmap, as detailed in the sources, is designed as a **6-to-9-month journey** that prioritizes **"learning by doing"** over traditional, theory-heavy education. This roadmap is structured to take a learner from zero knowledge to being capable of securing a mid-level DevOps role by simulating real-world enterprise environments.
+
+ 1. The Prerequisite Phase
+Before diving into DevOps tools, the sources emphasize building a strong foundation. This stage should take approximately **two months**:
+**Operating Systems:** Spend two weeks learning **Windows internals** and **one flavor of Unix**, specifically mastering the **Vim editor**, which is described as a "super power".
+**Shell Scripting:** Spend two to three weeks on basics, including file systems and **regular expressions**.
+**Programming:** The sources strongly recommend **Java** to clear up fundamentals, though Go is mentioned as a "fast track" alternative. The goal is to build a basic **web app** that can be deployed.
+Git:** Understand **distributed source control** and set up a GitHub account to manage the code you write.
+
+**2. Software Development Life Cycle (SDLC) & Initial Automation**
+Once the prerequisites are met, the roadmap shifts toward practical application:
+**Manual Deployment:** Start by manually creating a **WAR file** from your Java code and deploying it to a **Tomcat web server** on your local machine.
+**CI/CD with Jenkins:** Automate this process by setting up **Jenkins**. The goal is a "seamless automation" where checking in code to GitHub automatically triggers a build and deployment to Tomcat.
+ **Enterprise Simulation:** Expand this by creating separate **Dev and QA environments**, implementing "stage gates" for manual approvals, and integrating **JUnit** for testing and **SonarQube** for static code analysis.
+
+  **3. Scaling to the Cloud and Infrastructure**
+The roadmap then moves the local environment to professional cloud platforms:
+**Cloud Basics (AWS):** Replicate the local Jenkins/Tomcat setup on **AWS EC2** instances.
+**Cloud Native:** Transition from Jenkins to AWS-native tools like **CodeCommit, CodePipeline, and CodeDeploy**.
+**Infrastructure as Code (IaC):** Learn to automate the creation of these cloud environments using tools like **Terraform or Ansible**.
+
+ **4. Containerization and Orchestration**
+The final technical stages involve modernizing how applications are packaged and managed:
+**Docker:** Learn to put the entire pipeline into **containers**.
+**Kubernetes:** Use **AWS EKS** (Elastic Kubernetes Service) to configure a cluster and manage those containers at scale.
+
+ **5. Professional Methodology & Staying Current**
+The sources advocate for a specific mindset to survive the rapidly changing DevOps landscape:
+**Learn in Public:** Share your progress by writing blogs on platforms like Hashnode and posting code to GitHub. This builds a public record of your troubleshooting and debugging skills.
+**KSM Framework:** To avoid getting overwhelmed by the vast number of tools (often visualized in the **DevOps Periodic Table**), use the **Knowledge-Skill-Mastery** framework. Have broad *knowledge* of 100 things, develop a *skill* in 10, and achieve *mastery* in one or two.
+**Problem-Solving:** The roadmap purposely avoids "easy answers." Instead, it encourages learners to "go figure it out" when a tool like Jenkins fails, as debugging is the core job of a DevOps engineer.
