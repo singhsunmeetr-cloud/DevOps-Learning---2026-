@@ -1,0 +1,249 @@
+- World Wide Web (WWW)
+
+The World Wide Web (WWW) is a collection of interlinked webpages and documents that are stored on web servers and accessed over the Internet using a web browser.
+It allows users to view text, images, videos, and links.
+
+The WWW is a **service on the Internet**, not the Internet itself.
+
+- Protocols
+
+Protocols are standard rules and conventions that define how data is transmitted and received over a network.
+They ensure that devices can communicate with each other correctly.
+
+Examples:
+
+* TCP (Transmission Control Protocol):** Ensures reliable and ordered delivery of data.
+* UDP (User Datagram Protocol):** Sends data quickly without guaranteeing delivery.
+* HTTP (HyperText Transfer Protocol):** Used for transferring webpages.
+* HTTPS (HyperText Transfer Protocol Secure):** Secure version of HTTP using encryption.
+
+- IP Address
+
+An **IP address (Internet Protocol address)** is a **unique numerical identifier** assigned to each device connected to a network.
+It is used to **identify and locate devices** on the Internet or a local network so data can be sent to the correct destination.
+
+**Example:** `192.168.1.1`
+
+**Types of IP addresses:**
+
+* **IPv4:** 32-bit address (e.g., `192.168.0.1`)
+* **IPv6:** 128-bit address (e.g., `2001:0db8:85a3::8a2e:0370:7334`)
+
+To check public IP (any OS)  - curl ifconfig.me .
+
+# Series of IP Address (IP Address Classes)
+
+IP addresses are divided into **classes (series)** based on their range:
+
+* **Class A:** `1.0.0.0` – `126.255.255.255`
+* **Class B:** `128.0.0.0` – `191.255.255.255`
+* **Class C:** `192.0.0.0` – `223.255.255.255`
+* **Class D:** `224.0.0.0` – `239.255.255.255` *(Multicast)*
+* **Class E:** `240.0.0.0` – `255.255.255.255` *(Reserved)*
+
+
+👉 **Series of IP addresses are classified into Class A, B, C, D, and E based on their range.**
+
+Nice question — this is **very DevOps-relevant** 👍
+Strictly speaking, DevOps engineers don’t *memorize random IPs*, but there **are some important IP ranges you should recognize instantly**.
+
+### IP Addresses / Ranges a DevOps Engineer Should Remember
+
+#### 1️⃣ Localhost
+
+* **127.0.0.1** → Local machine (loopback)
+* **::1** → IPv6 localhost
+
+#### 2️⃣ Private IP Ranges (VERY important)
+
+Used inside VPCs, data centers, offices — **not routable on the internet**:
+
+* **10.0.0.0 – 10.255.255.255**  (Class A)
+* **172.16.0.0 – 172.31.255.255** (Class B)
+* **192.168.0.0 – 192.168.255.255** (Class C)
+
+👉 If you see these in logs, configs, or cloud setups → **internal traffic**
+
+#### 3️⃣ Link-Local Address
+
+* **169.254.0.0 – 169.254.255.255**
+  Used when DHCP fails (common debugging clue)
+
+#### 4️⃣ Default Gateway (commonly seen)
+
+* **192.168.1.1**
+* **192.168.0.1**
+
+#### 5️⃣ Public DNS IPs (very useful for testing)
+
+* **8.8.8.8** → Google DNS
+* **8.8.4.4** → Google DNS
+* **1.1.1.1** → Cloudflare DNS
+* **9.9.9.9** → Quad9 DNS
+
+#### 6️⃣ Docker & Kubernetes (good to recognize)
+
+* **172.17.0.1** → Docker default bridge
+* **10.96.0.0/12** → Kubernetes service CIDR (default)
+
+#### 7️⃣ Special Addresses
+
+* **0.0.0.0** → All interfaces / unknown address
+* **255.255.255.255** → Broadcast
+
+👉 *“A DevOps engineer should remember private IP ranges, localhost, common DNS IPs, and special-purpose addresses used in networking and cloud environments.”*
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ports
+
+A **port** is a **logical communication endpoint** in a computer network.
+It is used to **identify specific services or applications** running on a device so that data reaches the correct program.
+
+# Ports are 16 bit numbers.
+
+An IP address identifies the **device**, while a **port number identifies the service**.
+
+Examples:
+
+HTTP: Port `80`
+HTTPS: Port `443`
+FTP: Port `21`
+SMTP: Port `25`
+
+Ports are numerical identifiers that allow multiple network services to run on a single device.**
+
+Below is a must-remember ports list for a DevOps engineer — not theory fluff, just practical stuff you’ll actually use.
+
+---
+
+ 🚀 Ports a DevOps Engineer Should Remember
+
+### 🔐 Remote Access & Management
+
+* **22** → SSH (Linux servers, cloud VMs)
+* **3389** → RDP (Windows servers)
+
+### 🌐 Web & Load Balancers
+
+80 → HTTP
+443 → HTTPS
+8080 → Alternate HTTP (apps, Jenkins, Tomcat)
+
+📦 CI/CD & DevOps Tools
+
+8080** → Jenkins
+9000** → SonarQube
+3000** → Grafana
+9090** → Prometheus
+5601** → Kibana
+9411** → Zipkin
+
+🐳 Containers & Orchestration
+
+* **2375 / 2376** → Docker API
+* **6443** → Kubernetes API Server
+* **10250** → Kubelet
+* **30000–32767** → Kubernetes NodePort range
+
+🗄️ Databases (very common)
+
+* 3306 → MySQL
+* 5432 → PostgreSQL
+* 27017 → MongoDB
+* 6379 → Redis
+* 9200 → Elasticsearch
+
+📩 Messaging & Queues
+
+* **5672** → RabbitMQ
+* **9092** → Kafka
+* **61616** → ActiveMQ
+
+### 📧 Email & DNS (basic but important)
+
+* **25** → SMTP
+* **53** → DNS
+
+---
+
+## 🧠 DevOps Memory Trick
+
+> **22, 80, 443, 8080, 6443, 3306, 5432, 6379, 9200, 30000+**
+
+If you know these cold, you’ll **debug faster, clear interviews, and avoid silly mistakes** 💪
+
+---
+
+### One-line interview answer 🎯
+
+👉 *“A DevOps engineer should remember ports related to SSH, web traffic, CI/CD tools, containers, Kubernetes, databases, and monitoring systems.”*
+
+**LAN** stands for **Local Area Network**.
+
+### In simple terms
+
+A **LAN** is a network that connects devices **in a small, limited area** so they can communicate and share resources.
+
+---
+
+### 📍 Where you’ll find a LAN
+
+* Your **home Wi-Fi network**
+* An **office** network
+* A **school** or **college** computer lab
+* A few computers connected by a **router or switch**
+
+All of these are LANs.
+
+---
+
+### 🔌 What devices are in a LAN
+
+* Computers / laptops
+* Phones & tablets
+* Printers
+* Smart TVs
+* Servers
+* Routers & switches
+
+---
+
+ ⚡ Why LANs are used
+
+* Share **internet connection**
+* Share **files**
+* Share **printers**
+* Play **local multiplayer games**
+* Communicate **faster** than over the internet
+
+---
+
+### 🚀 Speed
+
+LANs are usually **very fast**:
+
+* **100 Mbps**
+* **1 Gbps**
+* **10 Gbps** (in modern setups)
+
+Much faster than typical internet speeds.
+
+---
+
+### 🌐 LAN vs Internet
+
+* **LAN** → local, private network
+* **WAN (Internet)** → connects LANs across cities/countries
+
+Your router connects your **LAN** to the **WAN (internet)**.
+
+---
+
+### 🔁 Related terms (quick)
+
+* **WLAN** → Wireless LAN (Wi-Fi)
+* **Ethernet** → Wired LAN
+* **MAN** → City-wide network
+* **WAN** → Wide Area Network
+
+
+
