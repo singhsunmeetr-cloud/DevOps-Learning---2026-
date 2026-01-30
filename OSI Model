@@ -1,0 +1,293 @@
+OSI - Open systems inerconnection : there are 7 layers in OSI
+
+1 Application - Software (users)    
+2 Presantation - Collects the data from application in a Binary format 
+3 Session - authenticate / encription 
+4 Transport - To control the data flow 
+5 Network - to communicate with other users for {exmp router}Routing and IP addressing   
+6 Data Link - Communication inside the same network
+7 Physical - Actual hardware & cables
+Got it — here’s the **OSI 7-Layer Model**, explained **the way a DevOps engineer actually uses it**, not the exam-only version 🙂
+
+---
+
+## OSI Model (Big Picture)
+
+The OSI model explains **how data travels from one system to another** over a network.
+For DevOps, it’s mainly a **debugging and design mental model**.
+
+When something breaks, you ask:
+
+> “Which OSI layer is failing?”
+
+---
+
+## Layer 7 → Layer 1 (Top → Bottom)
+
+---
+
+## **7. Application Layer**
+
+**What it is:**
+Where **users and apps interact with the network**
+
+**Examples**
+
+* HTTP / HTTPS
+* REST APIs
+* gRPC
+* SMTP, FTP, SSH
+
+**DevOps relevance**
+
+* Microservices communication
+* API gateways
+* Health checks
+* Auth errors (401, 403, 500)
+
+**Common issues**
+
+* App returns 500
+* Wrong API endpoint
+* Invalid headers / tokens
+
+**Tools**
+
+* curl, Postman
+* Browser dev tools
+* API Gateway logs
+
+---
+
+## **6. Presentation Layer**
+
+**What it is:**
+Data **formatting, encryption, compression**
+
+**Examples**
+
+* TLS/SSL
+* JSON / XML formatting
+* Encoding (UTF-8)
+
+**DevOps relevance**
+
+* HTTPS certificates
+* TLS termination at Load Balancer
+* Encryption in transit
+
+**Common issues**
+
+* SSL cert expired
+* Cipher mismatch
+* HTTPS works locally but not in prod
+
+**Tools**
+
+* openssl
+* cert-manager (K8s)
+* ACM (AWS)
+
+---
+
+## **5. Session Layer**
+
+**What it is:**
+Manages **sessions and connections**
+
+**Examples**
+
+* Session cookies
+* Keep-alive connections
+* Login sessions
+
+**DevOps relevance**
+
+* Sticky sessions in load balancers
+* WebSocket connections
+* Stateful vs stateless apps
+
+**Common issues**
+
+* Users logged out randomly
+* WebSocket disconnects
+* Session affinity problems
+
+**Tools**
+
+* NGINX / ALB configs
+* Redis (session store)
+
+---
+
+## **4. Transport Layer**
+
+**What it is:**
+Controls **how data is sent** (reliable or fast)
+
+**Protocols**
+
+* TCP (reliable)
+* UDP (fast, no guarantee)
+
+**DevOps relevance**
+
+* Port exposure
+* Service-to-service traffic
+* Kubernetes Services
+
+**Common issues**
+
+* Port not open
+* Connection timeout
+* TCP reset
+
+**Tools**
+
+* netstat
+* ss
+* telnet
+* nc (netcat)
+
+---
+
+## **3. Network Layer**
+
+**What it is:**
+Routing and IP addressing
+
+**Examples**
+
+* IP addresses
+* Routing tables
+* Subnets
+
+**DevOps relevance**
+
+* VPCs
+* Routing between subnets
+* VPNs
+* Kubernetes pod networking
+
+**Common issues**
+
+* No route to host
+* Wrong subnet
+* Pod cannot reach DB
+
+**Tools**
+
+* ping
+* traceroute
+* ip route
+* AWS VPC Flow Logs
+
+---
+
+## **2. Data Link Layer**
+
+**What it is:**
+Communication inside the **same network**
+
+**Examples**
+
+* MAC addresses
+* ARP
+* Ethernet
+
+**DevOps relevance**
+
+* Rarely touched directly
+* Cloud abstracts this layer
+
+**Common issues**
+
+* ARP issues (mostly on-prem)
+* Network interface down
+
+**Tools**
+
+* arp
+* tcpdump
+* ifconfig / ip link
+
+---
+
+## **1. Physical Layer**
+
+**What it is:**
+Actual hardware & cables
+
+**Examples**
+
+* Network cables
+* Switch ports
+* NICs
+
+**DevOps relevance**
+
+* Almost never (cloud handles it)
+* Relevant for on-prem / data centers
+
+**Common issues**
+
+* Cable unplugged
+* Hardware failure
+
+---
+
+## How DevOps Uses OSI (Real Scenario)
+
+### ❌ App not reachable
+
+You debug **top → bottom**:
+
+1. **Layer 7** – Is the app running?
+2. **Layer 6** – TLS cert valid?
+3. **Layer 5** – Session config correct?
+4. **Layer 4** – Port open?
+5. **Layer 3** – Network routing OK?
+6. **Layer 2** – Interface up?
+7. **Layer 1** – Hardware alive?
+
+---
+
+## Kubernetes Mapping (Very Important)
+
+| OSI Layer | Kubernetes Example            |
+| --------- | ----------------------------- |
+| L7        | Ingress, API Gateway          |
+| L4        | Service (ClusterIP, NodePort) |
+| L3        | Pod networking (CNI)          |
+| L2        | Node network interfaces       |
+
+---
+
+## Cloud Mapping (AWS Example)
+
+| OSI Layer | AWS Service                |
+| --------- | -------------------------- |
+| L7        | ALB, API Gateway           |
+| L4        | NLB                        |
+| L3        | VPC, Subnets, Route Tables |
+| L4–7      | Security Groups            |
+| L3        | NACL                       |
+
+---
+
+## One-Line DevOps Memory Trick
+
+> **“If it’s HTTP → L7, SSL → L6, Session → L5, Port → L4, IP → L3”**
+
+
+
+
+
+
+
+
+
+
+
+
+
