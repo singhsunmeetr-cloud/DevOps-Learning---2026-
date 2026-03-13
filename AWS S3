@@ -1,0 +1,13 @@
+Simple storage service 
+we can store any files on s3 which are called OBJECTS.
+Buckets are created in a region and its a REGIONAL SERVICE.
+
+To Do:-  Try creating the S3bucket on AWS console.
+            *Give a unique bucket name (as its universal name)
+            *Object ownership (let ACL (Access Control List) be disabled )
+            *Block all public access 
+            *bucket versioning (disabe as of now)
+            *Tags give name and value (to track storage or organise bucket)
+            *Default Encryption (will checklater on )
+            ===  Hit on create
+            *under objects upload files as objects 
