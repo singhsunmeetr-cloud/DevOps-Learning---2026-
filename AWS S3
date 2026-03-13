@@ -11,3 +11,47 @@ To Do:-  Try creating the S3bucket on AWS console.
             *Default Encryption (will checklater on )
             ===  Hit on create
             *under objects upload files as objects 
+
+S3 Durability and scalibility 
+
+               S3 provides upto 99.99999999999 (11nines) durability and that is through storing the data into 3 availibility zones. 
+                                                        which is called redundancy.
+
+RULES AND POLICIES 
+              S3 name should be unique
+              S3 Bucket are regional 
+              s3 S3 Object size can be upto 5TB
+
+
+AWS S3 ACCESS USING CLI
+
+              CLI needs to be authenticated with the AWS account (Go to security creditionals under my account and get the access key)
+
+                                                  Commands 
+To test connectivity wwith aws    : - aws sts get-caller-identity 
+To list the buckets               : - aws s3 ls
+To View content inside the bucket : - aws s3 ls s3:// NAMEOFTHEBUCKET
+To Move the content               : - aws s3 mv s3:// NAMEOFTHEsourceBUCKET/OBJECTNAME s3:// NAMEOFTHEdestinationBUCKET 
+To View all the content in bucket : - aws s3 ls s3:// NAMEOFTHEBUCKET --recursive
+
+
+S3 STORAGE CLASSES 
+
+           *AWS offeres 7 storage classes 
+
++STANDARD                        Standard IA                            Intelligent Tiering                            One Zone IA 
+-default                        Cost Effective                         Move Data between two access tiers               Low cost 
+-highly durable                 Suitable for IA infrequent access      optimize cost based on usage patterns     Suitable for infrequent access  
+-ideal for freaquent access     Supports highly available                                                         single availability zone 
+-Low latency                                                                                                       reduced durability 
+
+             Glacier class are 3 types 
+
+  Instant retrival                            Flrxibilie retrieval  
+     low cost                                low costf for archival
+suitable for archival data                Flexible retrieval options 
+retrival in milliseconds                    mins to hours 
+
+
+
+
